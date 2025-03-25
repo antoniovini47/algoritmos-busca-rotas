@@ -1,26 +1,29 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Algoritmos de Busca</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
   <div class="container">
-    <!-- Div para a imagem do mapa -->
     <div class="map-container">
-      <img src="mapa.jpg" alt="Mapa do Problema de Busca">
+      <img src="problema.jpg" alt="Mapa do Problema de Busca">
     </div>
-
-    <!-- Div para o conteúdo da interface -->
     <div class="content">
       <h1>Algoritmos de Busca</h1>
       <label for="start">Ponto de Partida:</label>
-      <input type="text" id="start" placeholder="Ex: Arad">
+      <select id="start">
+
+      </select>
       <br>
       <label for="end">Ponto de Chegada:</label>
-      <input type="text" id="end" placeholder="Ex: Bucharest">
+      <select id="end">
+
+      </select>
       <br>
 
       <h2>1. Sem Informação (Buscas Cegas)</h2>
@@ -38,6 +41,7 @@
       <pre id="result"></pre>
     </div>
   </div>
-  <script src="script.js"></script>
+  <script src="scripts.js"></script>
 </body>
+
 </html>
