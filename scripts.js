@@ -21,6 +21,59 @@ const graph = {
   Neamt: { Iasi: 87 },
 };
 
+function populateCitySelects() {
+  const startSelect = document.getElementById("start");
+  const endSelect = document.getElementById("end");
+
+  // Clear existing options
+  startSelect.innerHTML = "";
+  endSelect.innerHTML = "";
+
+  // Add options for each city in the graph
+  Object.keys(graph)
+    .sort()
+    .forEach((city) => {
+      const option = document.createElement("option");
+      option.value = city;
+      option.textContent = city;
+      startSelect.appendChild(option.cloneNode(true));
+      endSelect.appendChild(option.cloneNode(true));
+    });
+
+  // Set default selections
+  if (startSelect.options.length > 0) {
+    startSelect.selectedIndex = 0;
+  }
+
+  // Set Bucharest as default destination if available
+  for (let i = 0; i < endSelect.options.length; i++) {
+    if (endSelect.options[i].value === "Bucharest") {
+      endSelect.selectedIndex = i;
+      break;
+    } else if (endSelect.options.length > 0) {
+      endSelect.selectedIndex = 0;
+    }
+  }
+}
+
+// Fix the runUCS function
+function runUCS() {
+  const start = document.getElementById("start").value;
+  const end = document.getElementById("end").value;
+
+  if (!validateInput(start, end)) return;
+
+  const result = ucs(start, end);
+  document.getElementById("result").textContent = result
+    ? result.join(" -> ")
+    : "Caminho não encontrado";
+}
+
+// Call this when the page loads
+document.addEventListener("DOMContentLoaded", function () {
+  populateCitySelects();
+});
+
 function validateInput(start, end) {
   if (!graph[start] || !graph[end]) {
     alert("Cidade de partida ou chegada inválida. Verifique os nomes.");
