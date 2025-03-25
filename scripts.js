@@ -45,9 +45,8 @@ function populateCitySelects() {
     startSelect.selectedIndex = 0;
   }
 
-  // Set Bucharest as default destination if available
   for (let i = 0; i < endSelect.options.length; i++) {
-    if (endSelect.options[i].value === "Bucharest") {
+    if (endSelect.options[i].value === "Hirsova") {
       endSelect.selectedIndex = i;
       break;
     } else if (endSelect.options.length > 0) {
@@ -172,6 +171,15 @@ function iddfs(start, end, maxDepth) {
   return null;
 }
 
+function runBuscaDirecional() {
+  const start = document.getElementById("start").value;
+  const end = document.getElementById("end").value;
+  const result = aStar(start, end);
+  document.getElementById("result").textContent = result
+    ? result.join(" -> ")
+    : "Caminho não encontrado";
+}
+
 // Busca Gulosa (Greedy Best-First Search)
 function greedyBestFirstSearch(start, end) {
   const queue = [[start]]; // Fila de caminhos
@@ -196,14 +204,6 @@ function greedyBestFirstSearch(start, end) {
   }
   return null; // Se não encontrar o caminho
 }
-
-// function runSearch(algorithm) {
-//   const start = document.getElementById('start').value;
-//   const end = document.getElementById('end').value;
-//   if (!validateInput(start, end)) return;
-//   const result = algorithm(start, end);
-//   document.getElementById('result').textContent = result ? result.join(' -> ') : "Caminho não encontrado";
-// }
 
 // Função para A*
 function aStar(start, end) {

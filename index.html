@@ -1,3 +1,4 @@
+DevProjects/algoritmos-busca-rotas/index.html
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -10,37 +11,44 @@
 
 <body>
   <div class="container">
-    <div class="map-container">
-      <img src="problema.jpg" alt="Mapa do Problema de Busca">
-    </div>
     <div class="content">
       <h1>Algoritmos de Busca</h1>
+
       <label for="start">Ponto de Partida:</label>
       <select id="start">
-
+        <!-- Options will be populated by JavaScript -->
       </select>
-      <br>
+
       <label for="end">Ponto de Chegada:</label>
       <select id="end">
-
+        <!-- Options will be populated by JavaScript -->
       </select>
-      <br>
 
-      <h2>1. Sem Informação (Buscas Cegas)</h2>
-      <button onclick="runBFS()">1.1. Busca em Extensão (BFS)</button>
-      <button onclick="runUCS()">1.2. Busca de Custo Uniforme (UCS)</button>
-      <button onclick="runDFS()">1.3. Busca em Profundidade (DFS)</button>
-      <button onclick="runDLS()">1.4. Busca em Profundidade Limitada (DLS)</button>
-      <button onclick="runIDDFS()">1.5. Busca de Aprofundamento Iterativo (IDDFS)</button>
+      <h2>1. Sem Informação / Buscas Cegas</h2>
+      <div class="button-container">
+        <button onclick="runBFS()">1.1. Busca em extensão ou amplitude</button>
+        <button onclick="runUCS()">1.2. Busca de custo uniforme</button>
+        <button onclick="runDFS()">1.3. Busca em profundidade</button>
+        <button onclick="runDLS()">1.4. Busca em profundidade limitada</button>
+        <button onclick="runIDDFS()">1.5. Busca de aprofundamento iterativo</button>
+        <button onclick="runBuscaDirecional()">1.6 Busca direcional</button>
+      </div>
 
-      <h2>2. Com Informação (Buscas Heurísticas)</h2>
-      <button onclick="runGreedy()">2.1. Busca Gulosa</button>
-      <button onclick="runAStar()">2.2. Algoritmo A*</button>
+      <h2>2. Com Informação / Buscas Heurísticas</h2>
+      <div class="button-container">
+        <button onclick="runGreedy()">2.1. Busca gulosa</button>
+        <button onclick="runAStar()">2.2. Algoritmo A*</button>
+      </div>
 
-      <h2>Resultado:</h2>
-      <pre id="result"></pre>
+    </div>
+
+    <div class="map-container">
+      <img src="problema.jpg" alt="Mapa do Problema de Busca">
+
+      <div id="result"></div>
     </div>
   </div>
+
   <script src="scripts.js"></script>
 </body>
 
